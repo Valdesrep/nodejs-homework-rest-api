@@ -10,6 +10,9 @@ router.post("/signup", validation(joiSchema), ctrl.signup);
 router.post("/login", validation(joiSchema), ctrl.login);
 router.get("/current", auth, ctrl.getCurrent);
 router.get("/logout", auth, ctrl.logout);
+router.get("/verify/:verificationToken", ctrl.verify);
+router.post("/verify", ctrl.resendEmail);
+
 router.patch(
   "/:_id/subscription",
   validation(subscriptionJoiSchema),
